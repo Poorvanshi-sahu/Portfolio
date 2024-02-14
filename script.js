@@ -1,65 +1,56 @@
-gsap.registerPlugin('ScrollTrigger');
+gsap.registerPlugin("ScrollTrigger");
 const scroller = new LocomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
-    smooth: true
+  el: document.querySelector("[data-scroll-container]"),
+  smooth: true,
 });
 
+gsap.registerPlugin(ScrollTrigger);
 
-gsap.registerPlugin(ScrollTrigger)
+scroller.on("scroll", ScrollTrigger.update);
 
-
-scroller.on('scroll', ScrollTrigger.update)
-
-ScrollTrigger.scrollerProxy(
-    '#main', {
-        scrollTop(value) {
-            return arguments.length ?
-                scroller.scrollTo(value, 0, 0) :
-                scroller.scroll.instance.scroll.y
-        },
-        getBoundingClientRect() {
-            return {
-                left: 0,
-                top: 0,
-                width: window.innerWidth,
-                height: window.innerHeight
-            }
-        }
-    }
-)
-
+ScrollTrigger.scrollerProxy("#main", {
+  scrollTop(value) {
+    return arguments.length
+      ? scroller.scrollTo(value, 0, 0)
+      : scroller.scroll.instance.scroll.y;
+  },
+  getBoundingClientRect() {
+    return {
+      left: 0,
+      top: 0,
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  },
+});
 
 ScrollTrigger.create({
-    trigger: '#secondpage',
-    scroller: '#main',
-    start: 'top+=80% 15%',
-    end: 'bottom-=10% 10%',
-    animation: gsap.to('#photuin', { backgroundSize: '120%' }),
-    scrub: 2,
-    // markers: true
-})
-
+  trigger: "#secondpage",
+  scroller: "#main",
+  start: "top+=80% 15%",
+  end: "bottom-=10% 10%",
+  animation: gsap.to("#photuin", { backgroundSize: "120%" }),
+  scrub: 2,
+  // markers: true
+});
 
 ScrollTrigger.create({
-    trigger: '#secondpage',
-    scroller: '#main',
-    start: 'top+=90% 10%',
-    end: 'bottom-=40% 50%',
-    animation: gsap.to('#secondpara', { scale: '1.5' }),
-    scrub: 2,
-    // markers: true
-})
+  trigger: "#secondpage",
+  scroller: "#main",
+  start: "top+=90% 10%",
+  end: "bottom-=40% 50%",
+  animation: gsap.to("#secondpara", { scale: "1.5" }),
+  scrub: 2,
+  // markers: true
+});
 
+document.querySelector("#o").addEventListener("mouseover", function () {
+  document.querySelector("#o").style.transform = "scale(2)";
+});
 
-document.querySelector("#o").addEventListener('mouseover', function() {
-    document.querySelector("#o").style.transform = "scale(2)";
-})
-
-document.querySelector("#o").addEventListener('mouseout', function() {
-    document.querySelector("#o").style.transform = "scale(1)";
-})
-
-
+document.querySelector("#o").addEventListener("mouseout", function () {
+  document.querySelector("#o").style.transform = "scale(1)";
+});
 
 // var tlone = gsap.timeline({
 //     scrollTrigger: {
@@ -78,59 +69,50 @@ document.querySelector("#o").addEventListener('mouseout', function() {
 //     }
 // })
 
-
-
-
-
 let box = document.querySelector("#one");
-console.log(box)
-document.querySelector("#one").addEventListener('click', function() {
-    document.querySelector("#one").style.transform = "scale(2)";
-    document.querySelector("#one").style.transform = "translate(-50%,-50%) scale(1.5)";
-})
+console.log(box);
+document.querySelector("#one").addEventListener("click", function () {
+  document.querySelector("#one").style.transform = "scale(2)";
+  document.querySelector("#one").style.transform =
+    "translate(-50%,-50%) scale(1.5)";
+});
 
-document.querySelector("#two").addEventListener('click', function() {
-    document.querySelector("#two").style.transform = "scale(2)";
-    document.querySelector("#two").style.transform = "translate(-50%,-50%) scale(1.5)";
-})
+document.querySelector("#two").addEventListener("click", function () {
+  document.querySelector("#two").style.transform = "scale(2)";
+  document.querySelector("#two").style.transform =
+    "translate(-50%,-50%) scale(1.5)";
+});
 
-document.querySelector("#three").addEventListener('click', function() {
-    document.querySelector("#three").style.transform = "scale(2)";
-    document.querySelector("#three").style.transform = "translate(-50%,-50%) scale(1.5)";
-})
+document.querySelector("#three").addEventListener("click", function () {
+  document.querySelector("#three").style.transform = "scale(2)";
+  document.querySelector("#three").style.transform =
+    "translate(-50%,-50%) scale(1.5)";
+});
 
-document.querySelector("#four").addEventListener('click', function() {
-    document.querySelector("#four").style.transform = "scale(2)";
-    document.querySelector("#four").style.transform = "translate(-50%,-50%) scale(1.5)";
-})
+document.querySelector("#four").addEventListener("click", function () {
+  document.querySelector("#four").style.transform = "scale(2)";
+  document.querySelector("#four").style.transform =
+    "translate(-50%,-50%) scale(1.5)";
+});
 
-document.querySelector("#five").addEventListener('click', function() {
-    document.querySelector("#five").style.transform = "scale(2)";
-    document.querySelector("#five").style.transform = "translate(-50%,-50%) scale(1.5)";
-})
-
-
-
-
-
+document.querySelector("#five").addEventListener("click", function () {
+  document.querySelector("#five").style.transform = "scale(2)";
+  document.querySelector("#five").style.transform =
+    "translate(-50%,-50%) scale(1.5)";
+});
 
 var f = true;
 let images = document.querySelectorAll(".images-container img");
-images.forEach(function(val) {
-    val.addEventListener('click', function() {
-        val.style.transform = "translate(20%,-10%) scale(1.3)";
-        console.log("shdj");
-    })
-})
+images.forEach(function (val) {
+  val.addEventListener("click", function () {
+    // val.style.transform = "translate(20%,-10%) scale(1.3)";
+    // console.log("shdj");
+  });
+});
 
+ScrollTrigger.addEventListener("refresh", () => scroller.update());
 
-
-ScrollTrigger.addEventListener('refresh', () => scroller.update())
-
-
-ScrollTrigger.refresh()
-
-
+ScrollTrigger.refresh();
 
 // const scroll = new LocomotiveScroll({
 //     el: document.querySelector('[data-scroll-container]'),
