@@ -1,13 +1,16 @@
 const cursor = new MouseFollower({
-  container: '.container',
-  speed: 0.6
+  container: ".container",
+  speed: 0.6,
 });
 
-document.addEventListener('keydown',(e)=>{
-  if(e.key==='F12' || e.ctrlKey && e.shiftKey && e.key==="C"){
-    e.preventDefault()
+const thumbnailDiv = document.querySelector(".project-image");
+const overlayDiv = document.querySelector(".overlay");
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "C")) {
+    e.preventDefault();
   }
-})
+});
 
 gsap.registerPlugin("ScrollTrigger");
 const scroller = new LocomotiveScroll({
@@ -54,7 +57,6 @@ ScrollTrigger.create({
 });
 
 // cursor customization starts
-
 document.querySelector("#o").addEventListener("mouseover", function () {
   document.querySelector("#o").style.transform = "scale(2)";
   cursor.hide();
@@ -65,89 +67,103 @@ document.querySelector("#o").addEventListener("mouseout", function () {
   cursor.show();
 });
 
-document.querySelector("#resume-head").addEventListener("mouseover", function () {
-  document.querySelector("#resume-head").style.opacity = "0";
-  cursor.setText('Download Resume');
-});
+document
+  .querySelector("#resume-head")
+  .addEventListener("mouseover", function () {
+    document.querySelector("#resume-head").style.opacity = "0";
+    cursor.setText("Download Resume");
+  });
 
-document.querySelector("#resume-head").addEventListener("mouseout", function () {
-  document.querySelector("#resume-head").style.opacity = "1";
-  cursor.removeText();
-});
+document
+  .querySelector("#resume-head")
+  .addEventListener("mouseout", function () {
+    document.querySelector("#resume-head").style.opacity = "1";
+    cursor.removeText();
+  });
 
 document.querySelector("#github").addEventListener("mouseover", function () {
   document.querySelector("#github").style.opacity = "0";
-  cursor.setText('Click me');
+  cursor.setText("Visit me");
 });
 
 document.querySelector("#github").addEventListener("mouseout", function () {
   document.querySelector("#github").style.opacity = "1";
   cursor.removeText();
 });
-
-document.querySelector("#github").addEventListener("mouseover", function () {
-  document.querySelector("#github").style.opacity = "0";
-  cursor.setText('Click me');
-});
-
-document.querySelector("#github").addEventListener("mouseout", function () {
-  document.querySelector("#github").style.opacity = "1";
-  cursor.removeText();
-});
-
 // cursor customization ends
 
-let box = document.querySelector("#one");
-console.log(box);
-document.querySelector("#one").addEventListener("click", function () {
-  document.querySelector("#one").style.transform = "scale(2)";
-  document.querySelector("#one").style.transform =
-    "translate(-50%,-50%) scale(1.5)";
-});
 
-document.querySelector("#two").addEventListener("click", function () {
-  document.querySelector("#two").style.transform = "scale(2)";
-  document.querySelector("#two").style.transform =
-    "translate(-50%,-50%) scale(1.5)";
-});
+// project overlay starts
+const image = document.querySelectorAll(".image");
 
-document.querySelector("#three").addEventListener("click", function () {
-  document.querySelector("#three").style.transform = "scale(2)";
-  document.querySelector("#three").style.transform =
-    "translate(-50%,-50%) scale(1.5)";
-});
+image.forEach((elem) => {
+  const thumbnail = elem.querySelector(".project-image");
+  const overlay = elem.querySelector(".overlay");
 
-document.querySelector("#four").addEventListener("click", function () {
-  document.querySelector("#four").style.transform = "scale(2)";
-  document.querySelector("#four").style.transform =
-    "translate(-50%,-50%) scale(1.5)";
-});
+  thumbnail.addEventListener("mouseover", function () {
+    cursor.setText("About me");
+  });
 
-document.querySelector("#five").addEventListener("click", function () {
-  document.querySelector("#five").style.transform = "scale(2)";
-  document.querySelector("#five").style.transform =
-    "translate(-50%,-50%) scale(1.5)";
-});
+  thumbnail.addEventListener("mouseout", function () {
+    cursor.removeText();
+  });
 
-var f = true;
-let images = document.querySelectorAll(".images-container img");
-images.forEach(function (val) {
-  val.addEventListener("click", function () {
-    // val.style.transform = "translate(20%,-10%) scale(1.3)";
-    // console.log("shdj");
+  overlay.addEventListener("mouseover", function () {
+    cursor.setText('Close me');
+  });
+
+  thumbnail.addEventListener("click", function () {
+    overlay.classList.remove("display");
+  });
+
+  overlay.addEventListener("click", function () {
+    overlay.classList.add("display");
   });
 });
+
+// project overlay ends
+
+// let box = document.querySelector("#one");
+
+// document.querySelector("#one").addEventListener("click", function () {
+//   document.querySelector("#one").style.transform = "scale(2)";
+//   document.querySelector("#one").style.transform =
+//     "translate(-50%,-50%) scale(1.5)";
+// });
+
+// document.querySelector("#two").addEventListener("click", function () {
+//   document.querySelector("#two").style.transform = "scale(2)";
+//   document.querySelector("#two").style.transform =
+//     "translate(-50%,-50%) scale(1.5)";
+// });
+
+// document.querySelector("#three").addEventListener("click", function () {
+//   document.querySelector("#three").style.transform = "scale(2)";
+//   document.querySelector("#three").style.transform =
+//     "translate(-50%,-50%) scale(1.5)";
+// });
+
+// document.querySelector("#four").addEventListener("click", function () {
+//   document.querySelector("#four").style.transform = "scale(2)";
+//   document.querySelector("#four").style.transform =
+//     "translate(-50%,-50%) scale(1.5)";
+// });
+
+// document.querySelector("#five").addEventListener("click", function () {
+//   document.querySelector("#five").style.transform = "scale(2)";
+//   document.querySelector("#five").style.transform =
+//     "translate(-50%,-50%) scale(1.5)";
+// });
+
+// var f = true;
+// let images = document.querySelectorAll(".images-container img");
+// images.forEach(function (val) {
+//   val.addEventListener("click", function () {
+//     // val.style.transform = "translate(20%,-10%) scale(1.3)";
+//     // console.log("shdj");
+//   });
+// });
 
 ScrollTrigger.addEventListener("refresh", () => scroller.update());
 
 ScrollTrigger.refresh();
-
-// const scroll = new LocomotiveScroll({
-//     el: document.querySelector('[data-scroll-container]'),
-//     smooth: true,
-//     lerp: 0.03, // Linear Interpolation, 0 > 1 // Try 0.01
-//     multiplier: 1.4, // Effect Multiplier
-//     reloadOnContextChange: true,
-//     touchMultiplier: 2,
-//     smoothMobile: 0,
-// });

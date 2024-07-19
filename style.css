@@ -504,7 +504,6 @@ cite {
   position: relative;
   width: 100%;
   max-height: 75vh;
-  /* height: 100%; */
   align-self: stretch;
   object-fit: cover;
   transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
@@ -544,7 +543,7 @@ cite {
 
 .images-container img:hover {
   /* transform: translate(-5%, 0%) scale(1.1); */
-  z-index: 999;
+  z-index: 1;
 }
 
 #nav #right #git {
@@ -708,13 +707,44 @@ cite {
   overflow: hidden;
   background-color: white;
   border: 1px solid rgb(176, 171, 171);
+  position: relative;
 }
 
-.image img {
+.overlay{
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  background-color: #c19c7e;
+  height: 83%;
+  background-color: rgba(0, 0, 0, 0.724);
+  position: absolute;
+  top: 0;
+  color: azure;
+  z-index: 999;
+}
+
+.overlay-1{
+  width: 100%;
+  background-color:rgba(255, 255, 255, 0.674);
+  font-weight: 500;
+  font-family: 'Gilroy';
+  font-size: 2rem;
+  color: #383333;
+  padding: 1vmax;
+  display: flex;
+  justify-content: center;
+}
+
+.overlay-2{
+  padding: 1vmax;
+  color: azure;
+  font-family: 'Gilroy';
+  font-size: 1.3rem;
+}
+
+.display{
+  display: none;
+}
+
+.project-image{
+   cursor: pointer;
 }
 
 .footer {
