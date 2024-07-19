@@ -741,6 +741,15 @@ cite {
   text-decoration: none;
 }
 
+.footer button:hover{
+  background-color: #222222;
+
+  a{
+    color: azure;
+    font-weight: 600;
+  }
+}
+
 .credit {
   margin-bottom: 1rem;
 }
