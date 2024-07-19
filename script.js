@@ -1,3 +1,9 @@
+document.addEventListener('keydown',(e)=>{
+  if(e.ctrlKey && e.shiftKey && e.key==="C"){
+    e.preventDefault()
+  }
+})
+
 gsap.registerPlugin("ScrollTrigger");
 const scroller = new LocomotiveScroll({
   el: document.querySelector("[data-scroll-container]"),

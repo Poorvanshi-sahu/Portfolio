@@ -476,20 +476,16 @@ h6 {
 }
 
 .section-22 {
-  height: calc(236vh);
+  height: max-content;
   display: grid;
-  /* grid-template-columns: 1fr 2fr; */
   grid-template-columns: 40% 60%;
   background-color: #ececec;
-  /* border-top: 1px solid gray; */
-  /* position: absolute; */
   padding: 0 3em;
 }
 
 blockquote {
   font-size: 4vmin;
   padding: 16px 16px 0 16px;
-  /* background-color: aquamarine; */
   font-family: "ogg";
   width: 90%;
 }
