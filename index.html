@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./images/My_photo.png" type="image/x-icon">
+    
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -22,24 +23,29 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.css">
     <title>My_Portfolio</title>
   </head>
 
   <body>
+    <div class="container">
     <div data-scroll-container id="main">
+      <!-- Navbar -->
       <div id="nav">
         <div id="left">
           <h2>Poorvanshi sahu</h2>
         </div>
         <div id="right">
-          <a href="./files/Poorvanshi_resume_.pdf" download>Resume</a>
+          <a href="./files/Poorvanshi_resume_.pdf" download id="resume-head">Resume</a>
           <a
             href="https://github.com/Poorvanshi-sahu"
-            target="_blank"
+            target="_blank" id="github"
             ><img src="./images/github.png" alt=""
           /></a>
         </div>
       </div>
+
+      <!-- firstpage -->
       <hr id="hr" />
       <div id="firstpage">
         <div id="mainpage">
@@ -62,7 +68,8 @@
           </div>
         </div>
       </div>
-      <!-- <hr> -->
+
+      <!-- second page -->
       <div id="second">
         <div id="left">
           <div id="photu">
@@ -89,8 +96,7 @@
         </div>
       </div>
 
-      <!-- <hr> -->
-
+      <!-- third page -->
       <div class="section-22" id="section-22">
         <div id="pinSection" class="pinned-quote">
           <blockquote
@@ -109,7 +115,10 @@
         <div class="images-container">
           <!-- first project -->
           <div class="image">
-            <img src="./images/social media.png " alt=" " />
+            <!-- <div class="project-header"> -->
+              <img src="./images/social media.png " alt=" " class="project-image"/>
+              <!-- <div class="overlay">Hello I am overlay</div> -->
+            <!-- </div> -->
             <div class="footer">
               <button>
                 <a
@@ -305,6 +314,8 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.min.js "></script>
+    <script src="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.js"></script>
     <script src="script.js "></script>
+  </div>
   </body>
 </html>

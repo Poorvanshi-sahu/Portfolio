@@ -1,8 +1,13 @@
-document.addEventListener('keydown',(e)=>{
-  if(e.ctrlKey && e.shiftKey && e.key==="C"){
-    e.preventDefault()
-  }
-})
+const cursor = new MouseFollower({
+  container: '.container',
+  speed: 0.6
+});
+
+// document.addEventListener('keydown',(e)=>{
+//   if(e.ctrlKey && e.shiftKey && e.key==="C"){
+//     e.preventDefault()
+//   }
+// })
 
 gsap.registerPlugin("ScrollTrigger");
 const scroller = new LocomotiveScroll({
@@ -37,7 +42,6 @@ ScrollTrigger.create({
   end: "bottom-=10% 10%",
   animation: gsap.to("#photuin", { backgroundSize: "120%" }),
   scrub: 2,
-  // markers: true
 });
 
 ScrollTrigger.create({
@@ -47,33 +51,51 @@ ScrollTrigger.create({
   end: "bottom-=40% 50%",
   animation: gsap.to("#secondpara", { scale: "1.5" }),
   scrub: 2,
-  // markers: true
 });
+
+// cursor customization starts
 
 document.querySelector("#o").addEventListener("mouseover", function () {
   document.querySelector("#o").style.transform = "scale(2)";
+  cursor.hide();
 });
 
 document.querySelector("#o").addEventListener("mouseout", function () {
   document.querySelector("#o").style.transform = "scale(1)";
+  cursor.show();
 });
 
-// var tlone = gsap.timeline({
-//     scrollTrigger: {
-//         trigger: ".section-22",
-//         scroller: "#main",
-//         stagger: 2,
-//         // markers: true,
-//         start: "top 60%",
-//         scrub: true
-//     }
-// });
+document.querySelector("#resume-head").addEventListener("mouseover", function () {
+  document.querySelector("#resume-head").style.opacity = "0";
+  cursor.setText('Download Resume');
+});
 
-// tlone.to("#afterhome h1", {
-//     onStart: function() {
-//         $('#pinSection').textillate({ in: { effect: 'fadeInUp' } });
-//     }
-// })
+document.querySelector("#resume-head").addEventListener("mouseout", function () {
+  document.querySelector("#resume-head").style.opacity = "1";
+  cursor.removeText();
+});
+
+document.querySelector("#github").addEventListener("mouseover", function () {
+  document.querySelector("#github").style.opacity = "0";
+  cursor.setText('Click me');
+});
+
+document.querySelector("#github").addEventListener("mouseout", function () {
+  document.querySelector("#github").style.opacity = "1";
+  cursor.removeText();
+});
+
+document.querySelector("#github").addEventListener("mouseover", function () {
+  document.querySelector("#github").style.opacity = "0";
+  cursor.setText('Click me');
+});
+
+document.querySelector("#github").addEventListener("mouseout", function () {
+  document.querySelector("#github").style.opacity = "1";
+  cursor.removeText();
+});
+
+// cursor customization ends
 
 let box = document.querySelector("#one");
 console.log(box);
