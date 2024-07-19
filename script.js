@@ -3,8 +3,9 @@ const cursor = new MouseFollower({
   speed: 0.6,
 });
 
-const thumbnailDiv = document.querySelector(".project-image");
-const overlayDiv = document.querySelector(".overlay");
+document.addEventListener('contextmenu', (e)=>{
+  e.preventDefault();
+})
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "C")) {
