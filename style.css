@@ -39,11 +39,49 @@ body {
   width: 100%;
 }
 
+body .no-scroll {
+  overflow: hidden;
+}
+
+
 #main {
   min-height: 100vh;
   width: 100%;
   background-color: #ececec;
+  position: relative;
 }
+
+.menu-box{
+  height: 5%;
+  width: 100%;
+  background-color:#ececec;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  /* border: 1px solid #5f5f5f; */
+  border-radius: 10px;
+  box-shadow: 1px 5px 10px #5f5f5f;
+  display: none;
+}
+
+.menu-nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+
+.menu-bottom .menu-items{
+  margin-bottom: 1.7rem;
+  font-size: 1.2rem;
+} 
+
+.menu-items{
+  padding-left: 1rem;
+}
+
 
 #nav {
   position: absolute;
@@ -70,7 +108,7 @@ body {
   font-size: 0.8vw;
 }
 
-#nav #right a:nth-child(1) {
+#nav #right a {
   border-bottom: 0.2em solid #222222;
 }
 
@@ -351,12 +389,25 @@ h6 {
   text-align: center;
 }
 
-#skills h1 {
+#skills h1, .project-heading h1 {
   color: #5f5f5f;
   font-family: "voyage";
   font-size: 4rem;
   letter-spacing: 0.2rem;
   margin-bottom: 2rem;
+}
+
+.project-heading{
+  display: none;
+}
+
+.menu{
+  display: none;
+  cursor: pointer;
+}
+
+.menu-close{
+  cursor: pointer;
 }
 
 .skill-boxes {
@@ -881,9 +932,11 @@ cite {
 
   .section-22 {
     display: block;
-    height: calc(155vw);
+    /* height: calc(155vw); */
     padding-top: 1.2rem;
+    height: max-content;
   }
+
 
   .images-container {
     width: 100%;
@@ -892,6 +945,10 @@ cite {
   .image {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  #skills{
+    padding: 0;
   }
 
   .skill-boxes {
@@ -937,4 +994,72 @@ cite {
   #second #right {
     height: 30%;
   }
+}
+
+@media screen and (max-width: 400px){
+  #nav {
+    padding: 1em 2em;
+}
+
+  #firstpage {
+    height: 65vh;
+}
+
+#mainpage {
+  top: 10vh;
+}
+
+#second{
+  height: 100vh;
+}
+
+#left, #right{
+  height: 100%;
+}
+
+#photu{
+  height: 90%;
+  width: 70%;
+}
+
+.section-22{
+  padding: 0;
+}
+
+.image{
+  width: 95vw;
+}
+
+.images-container img{
+   width: 100%;
+}
+
+#para{
+  margin: 0;
+  top: 0;
+}
+
+#secondpara{
+  margin: auto;
+}
+
+.project-heading{
+  display:initial;
+  text-align: center;
+}
+
+#nav{
+  align-items: center;
+}
+
+#nav #right{
+  font-size: 4vw;
+}
+
+.menu{
+  display: initial;
+  cursor: pointer;
+}
+
+
 }
