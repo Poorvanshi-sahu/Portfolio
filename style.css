@@ -267,6 +267,7 @@ body .no-scroll {
 #firstpara {
   margin-top: 2em;
   font-family: "gilroy";
+  margin: auto;
 }
 
 #secondpara {
@@ -927,7 +928,7 @@ cite {
 
   #para {
     height: auto;
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
     margin-left: 0;
     text-align: center;
   }
@@ -1055,7 +1056,7 @@ cite {
 }
 
 #nav{
-  align-items: center;
+  align-items: baseline;
 }
 
 #nav #right{
