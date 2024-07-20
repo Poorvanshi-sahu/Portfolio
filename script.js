@@ -3,15 +3,15 @@ const cursor = new MouseFollower({
   speed: 0.6,
 });
 
-document.addEventListener('contextmenu', (e)=>{
-  e.preventDefault();
-})
+// document.addEventListener('contextmenu', (e)=>{
+//   e.preventDefault();
+// })
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "C")) {
-    e.preventDefault();
-  }
-});
+// document.addEventListener("keydown", (e) => {
+//   if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "C")) {
+//     e.preventDefault();
+//   }
+// });
 
 gsap.registerPlugin("ScrollTrigger");
 const scroller = new LocomotiveScroll({
