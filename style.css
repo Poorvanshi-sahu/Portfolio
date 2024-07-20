@@ -92,7 +92,7 @@ body .no-scroll {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10em;
+  padding: 0 5em;
 }
 
 #nav #left {
@@ -671,7 +671,8 @@ cite {
     border-top: 1px solid gray;
     margin-top: 30px;
     display: inline;
-    height: calc(405vh);
+    /* height: calc(405vh); */
+    height: max-content;
   }
   #skills {
     /* height: 70vh; */
@@ -752,7 +753,7 @@ cite {
 }
 
 .image {
-  width: 45vw;
+  /* width: 45vw; */
   margin-bottom: 1rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -854,6 +855,10 @@ cite {
 }
 
 @media screen and (max-width: 768px) {
+  #nav{
+     padding: 0 2em;
+  }
+
   #photu {
     height: 50vw;
     width: 38vw;
@@ -863,7 +868,8 @@ cite {
   }
 
   .section-22 {
-    height: calc(140vw);
+    /* height: calc(140vw); */
+    height: max-content;
     padding-top: 1.2rem;
   }
 
@@ -887,7 +893,7 @@ cite {
 
   .section-22 {
     /* display: block; */
-    height: calc(150vw);
+    height: max-content;
     padding-top: 1.2rem;
   }
 
@@ -902,7 +908,7 @@ cite {
 
 @media screen and (max-width: 600px) {
   #firstpage {
-    height: 47vh;
+    height: 53vh;
   }
 
   #second {
@@ -976,7 +982,7 @@ cite {
 
 @media screen and (max-width: 480px) {
   #contact {
-    font-size: 3vw;
+    font-size: 3.7vw;
   }
 
   #nav {
