@@ -52,7 +52,7 @@ body .no-scroll {
 }
 
 .menu-box{
-  height: 5%;
+  height: max-content;
   width: 100%;
   background-color:#ececec;
   position: fixed;
