@@ -1,8 +1,9 @@
-const cursor = new MouseFollower({
+let cursor = new MouseFollower({
   container: ".container",
   speed: 0.6,
 });
 
+// For disabling inspect starts
 document.addEventListener('contextmenu', (e)=>{
   e.preventDefault();
 })
@@ -12,6 +13,31 @@ document.addEventListener("keydown", (e) => {
     e.preventDefault();
   }
 });
+// For disabling inspect ends
+
+// For cursor control in differnt screens starts
+function initializeCubertoCursor() {
+  if (window.innerWidth < 600) {
+    if (cursor) {
+      cursor.destroy();
+      cursor = null;  // Reset cursor to null to indicate it has been destroyed
+    }
+  } else {
+    if (!cursor) {
+      cursor = new MouseFollower({
+        container: ".container",
+        speed: 0.6,
+      });
+    }
+  }
+}
+
+initializeCubertoCursor();
+
+// Listen for window resize to enable/disable Cuberto cursor accordingly
+window.addEventListener('resize', initializeCubertoCursor);
+
+// For cursor control in differnt screens starts ends
 
 gsap.registerPlugin("ScrollTrigger");
 const scroller = new LocomotiveScroll({
@@ -134,46 +160,6 @@ document.querySelector(".menu-close").addEventListener('click',function(){
 
 // menu visibility end
 
-// let box = document.querySelector("#one");
-
-// document.querySelector("#one").addEventListener("click", function () {
-//   document.querySelector("#one").style.transform = "scale(2)";
-//   document.querySelector("#one").style.transform =
-//     "translate(-50%,-50%) scale(1.5)";
-// });
-
-// document.querySelector("#two").addEventListener("click", function () {
-//   document.querySelector("#two").style.transform = "scale(2)";
-//   document.querySelector("#two").style.transform =
-//     "translate(-50%,-50%) scale(1.5)";
-// });
-
-// document.querySelector("#three").addEventListener("click", function () {
-//   document.querySelector("#three").style.transform = "scale(2)";
-//   document.querySelector("#three").style.transform =
-//     "translate(-50%,-50%) scale(1.5)";
-// });
-
-// document.querySelector("#four").addEventListener("click", function () {
-//   document.querySelector("#four").style.transform = "scale(2)";
-//   document.querySelector("#four").style.transform =
-//     "translate(-50%,-50%) scale(1.5)";
-// });
-
-// document.querySelector("#five").addEventListener("click", function () {
-//   document.querySelector("#five").style.transform = "scale(2)";
-//   document.querySelector("#five").style.transform =
-//     "translate(-50%,-50%) scale(1.5)";
-// });
-
-// var f = true;
-// let images = document.querySelectorAll(".images-container img");
-// images.forEach(function (val) {
-//   val.addEventListener("click", function () {
-//     // val.style.transform = "translate(20%,-10%) scale(1.3)";
-//     // console.log("shdj");
-//   });
-// });
 
 ScrollTrigger.addEventListener("refresh", () => scroller.update());
 
