@@ -4,38 +4,17 @@ let cursor = new MouseFollower({
 });
 
 // For disabling inspect starts
-document.addEventListener('contextmenu', (e)=>{
-  e.preventDefault();
-})
+// document.addEventListener('contextmenu', (e)=>{
+//   e.preventDefault();
+// })
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "C")) {
-    e.preventDefault();
-  }
-});
+// document.addEventListener("keydown", (e) => {
+//   if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "C")) {
+//     e.preventDefault();
+//   }
+// });
 // For disabling inspect ends
 
-// For cursor control in differnt screens starts
-function initializeCubertoCursor() {
-  if (window.innerWidth < 600) {
-    if (cursor) {
-      cursor.destroy();
-      cursor = null;  // Reset cursor to null to indicate it has been destroyed
-    }
-  } else {
-    if (!cursor) {
-      cursor = new MouseFollower({
-        container: ".container",
-        speed: 0.6,
-      });
-    }
-  }
-}
-
-initializeCubertoCursor();
-
-// Listen for window resize to enable/disable Cuberto cursor accordingly
-window.addEventListener('resize', initializeCubertoCursor);
 
 // For cursor control in differnt screens starts ends
 
@@ -65,6 +44,8 @@ ScrollTrigger.scrollerProxy("#main", {
   },
 });
 
+function createScrollTrigger() {
+
 ScrollTrigger.create({
   trigger: "#secondpage",
   scroller: "#main",
@@ -82,6 +63,8 @@ ScrollTrigger.create({
   animation: gsap.to("#secondpara", { scale: "1.5" }),
   scrub: 2,
 });
+}
+
 
 // cursor customization starts
 document.querySelector("#o").addEventListener("mouseover", function () {
@@ -118,7 +101,6 @@ document.querySelector("#github").addEventListener("mouseout", function () {
   cursor.removeText();
 });
 // cursor customization ends
-
 
 // project overlay starts
 const image = document.querySelectorAll(".image");
@@ -160,6 +142,34 @@ document.querySelector(".menu-close").addEventListener('click',function(){
 
 // menu visibility end
 
+// For cursor control in differnt screens starts
+let scrollTriggerInstance;
+
+function initializeCubertoCursor() {
+  if (window.innerWidth < 600) {
+    if (cursor) {
+      cursor.destroy();
+      cursor = null;  // Reset cursor to null to indicate it has been destroyed
+      if (scrollTriggerInstance) {
+        scrollTriggerInstance.kill();  // Stop the ScrollTrigger
+        scrollTriggerInstance = null;  // Reset the ScrollTrigger instance
+      }
+    }
+  } else {
+    if (!cursor) {
+      cursor = new MouseFollower({
+        container: ".container",
+        speed: 0.6,
+      });
+    }
+    createScrollTrigger(); 
+  }
+}
+
+initializeCubertoCursor();
+
+// Listen for window resize to enable/disable Cuberto cursor accordingly
+window.addEventListener('resize', initializeCubertoCursor);
 
 ScrollTrigger.addEventListener("refresh", () => scroller.update());
 

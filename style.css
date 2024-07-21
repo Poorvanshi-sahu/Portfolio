@@ -97,7 +97,7 @@ body .no-scroll {
 
 #nav #left {
   font-family: "voyage";
-  font-size: 1vw;
+  font-size: 0.9rem;
 }
 
 #nav #right {
@@ -105,7 +105,7 @@ body .no-scroll {
   justify-content: space-between;
   align-items: center;
   font-family: "gilroy";
-  font-size: 0.8vw;
+  font-size: 0.8rem;
 }
 
 #nav #right a {
@@ -116,7 +116,7 @@ body .no-scroll {
   cursor: pointer;
   text-decoration: none;
   margin-left: 1em;
-  font-size: 1.1vw;
+  /* font-size: 1.1vw; */
 }
 
 #right img {
@@ -1002,14 +1002,43 @@ cite {
   #second #right {
     height: 30%;
   }
+
+  .overlay{
+    height: 74%;
+  }
+
+  .overlay-1{
+    font-size: 1rem;
+  }
+
+  .overlay-2{
+    font-size: 1rem;
+  }
+
+  #links{
+    margin-top: 0;
+  }
+
+  #links a {
+    font-size: 1.2rem;
+}
+
+#second #right{
+  height: 40%;
+}
+
+#para {
+  width: 83%;
+  font-size: 0.6rem;
+}
 }
 
 @media screen and (max-width: 400px){
-  #nav {
-    padding: 1em 2em;
+#nav {
+    padding: 1em 2.5em;
 }
 
-  #firstpage {
+#firstpage {
     height: 65vh;
 }
 
@@ -1072,5 +1101,22 @@ cite {
 .skill-boxes{
     width: 50%;
     margin: auto;
+}
+
+#secondpara {
+  font-size: 0.9em;
+}
+
+.overlay{
+  height: 73%;
+  font-size: 0.7rem;
+}
+
+.overlay-1{
+  font-size: 1rem;
+}
+
+.overlay-2{
+  font-size: 0.8rem;
 }
 }
